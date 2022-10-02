@@ -1,44 +1,57 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
 using LAB2;
+using System.Linq;
+using System.Threading.Channels;
+using Microsoft.VisualBasic.CompilerServices;
+
+int userPick = 0;                                                                           // Fixa textfilen och current customer använder programmet (WHILE LOOPS)
+int signInMenu = 0;
+double oreganoGrams, thymeGrams, bayleafGrams, parsleyGrams, rosemaryGrams, chiveGrams, totalPrice;
+
+var customerOne = new Customer("Knatte", "123");
+var customerTwo = new Customer("Fnatte", "321");
+var customerThree = new Customer("Tjatte", "213");
+
+var customers = new List<Customer>();
+
+customers.Add(customerOne);
+customers.Add(customerTwo);
+customers.Add(customerThree);
 
 
-int userPick = 0;
-int signInMenu;
-bool valid = false;
+customers.Add(Customer.NewCustomer());
 
-var custOne = new Customer();
-custOne.Cart.Add(new Product { productName = "Samsung Galaxy S22" });
-custOne.Cart.Add(new Product { productName = "Xiaomi 12T Pro" });
-custOne.Cart.Add(new Product { productName = "Iphone 14 Pro Max" });
-custOne.Cart.Add(new Product { productName = "ITHS Phone ZUGZUG" });
-custOne.Cart.Add(new Product { productName = "Zlatan Phone BIGBOI XXXL" });
+for (int i = 0; i < customers.Count; i++) {                                                     // måste söka via customerId för att känna igen
+    Console.WriteLine(customers[i].CustomerId);
+
+}
 
 
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Do you want to sign in, or register a new account?\n\n");
-Console.WriteLine("1) Sign In \n2) Create A New Account ");
-
-while (true) {
+customers[customers.Count - 1].CartPresent();
 
 
+var menu = new List<Product>();
+
+menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });
+menu.Add(new Product { ProductId = 2, ProductName = "Thyme", Price = 11.95D });
+menu.Add(new Product { ProductId = 3, ProductName = "Bay Leaf", Price = 23.95D });
+menu.Add(new Product { ProductId = 4, ProductName = "Parsley", Price = 17.95D });
+menu.Add(new Product { ProductId = 5, ProductName = "Rosemary", Price = 14.95D });
+menu.Add(new Product { ProductId = 6, ProductName = "Chive", Price = 19.95D });
+
+customers[customers.Count - 1].addToCart(menu[0]);
+customers[customers.Count - 1].addToCart(menu[2]);
+customers[customers.Count - 1].addToCart(menu[3]);
+customers[customers.Count - 1].CartPresent();
+
+customers[customers.Count - 1].ConvertCurrencyUSD(customers[customers.Count - 1].TotalPrice);
 
 
-    signInMenu = int.Parse(Console.ReadLine());
+for (int i = 0; i < menu.Count; i++) {
 
-    if (signInMenu == 2) {
-        Console.WriteLine("\n\nEnter Account Email You Want To Register");
-        custOne.CustomerId = Console.ReadLine();
-        Console.WriteLine($"\n{custOne.CustomerId} registered");
-
-    } else if (signInMenu == 1) {
-
-
-    } else {
-        Console.WriteLine("Invalid Choice");
-    }
-
-
-
+    menu[i].MenuPresent();
 
 }
 
