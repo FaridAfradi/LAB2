@@ -1,11 +1,16 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
-
-namespace LAB2;
-
+using System.Drawing;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using LAB2;
+namespace LAB2{
 public class Product {
 
-
+        
 
     private double _price;
     private string _productName;
@@ -31,7 +36,7 @@ public class Product {
             _price = value;
         }
     }
-
+        
     public Product() {
 
     }
@@ -45,5 +50,7 @@ public class Product {
     }
 
 
+
+}
 
 }

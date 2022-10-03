@@ -1,0 +1,18 @@
+Knatte:123/0
+Fnatte:321/0
+Tjatte:213/0
+Farid:lösenord/1
+
+
+-Fixa en split (in med värderna i en array) - set tier på user via en RNG
+
+- Fixa login metod som fungerar (jämför sedan med path/string/validate) - Returna värdet och se så att filvägen stämmer överens 
+
+https://learn.microsoft.com/en-us/dotnet/api/system.io.file?view=net-7.0
+
+- ReadAllLines <---- Den kan vara bra att scanna igenom listan med för validering
+- WriteAllLines <---- Tar emot en array och skriver ut alla instancer av arrayen på en rad
+
+- Fixa Public override ToString() till alla klasser
+- kolla in Basic/Bronze/silver/gold - (Separata klasser eller en klass med olika properties)
+- Få ut path till folder/med texten

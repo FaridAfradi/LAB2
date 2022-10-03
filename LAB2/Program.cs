@@ -1,15 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using LAB2;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
-using System.Security.Cryptography.X509Certificates;
-using LAB2;
+using System.Drawing;
 using System.Linq;
-using System.Threading.Channels;
-using Microsoft.VisualBasic.CompilerServices;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
-int userPick = 0;                                                                           // Fixa textfilen och current customer använder programmet (WHILE LOOPS)
-int signInMenu = 0;
-double oreganoGrams, thymeGrams, bayleafGrams, parsleyGrams, rosemaryGrams, chiveGrams, totalPrice;
 
+// Fixa textfilen och current customer använder programmet (WHILE LOOPS)
 var customerOne = new Customer("Knatte", "123");
 var customerTwo = new Customer("Fnatte", "321");
 var customerThree = new Customer("Tjatte", "213");
@@ -20,13 +20,20 @@ customers.Add(customerOne);
 customers.Add(customerTwo);
 customers.Add(customerThree);
 
+Customer.NewCustomer();
 
-customers.Add(Customer.NewCustomer());
+//customers.Add(Customer.NewCustomer());
 
 for (int i = 0; i < customers.Count; i++) {                                                     // måste söka via customerId för att känna igen
     Console.WriteLine(customers[i].CustomerId);
-
+    
 }
+
+
+var a = Environment.CurrentDirectory;
+Console.WriteLine(a);
+Console.WriteLine(Environment.CurrentDirectory);
+Console.ReadLine();
 
 
 customers[customers.Count - 1].CartPresent();
@@ -47,6 +54,7 @@ customers[customers.Count - 1].addToCart(menu[3]);
 customers[customers.Count - 1].CartPresent();
 
 customers[customers.Count - 1].ConvertCurrencyUSD(customers[customers.Count - 1].TotalPrice);
+customers[customers.Count - 1].CartPresent();
 
 
 for (int i = 0; i < menu.Count; i++) {
@@ -56,5 +64,5 @@ for (int i = 0; i < menu.Count; i++) {
 }
 
 
-
+Console.ReadLine();
 
