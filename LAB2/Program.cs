@@ -55,6 +55,7 @@ while (true) {
     MainMenu();
 
 
+
     /* for (int i = 0; i < customers.Count; i++) {
          Console.WriteLine(customers[i].CustomerId);
 
@@ -78,6 +79,8 @@ while (true) {
         menu[i].MenuPresent();
 
     }
+
+    Customer.ProductAdder();
 
     Console.ReadLine();
 

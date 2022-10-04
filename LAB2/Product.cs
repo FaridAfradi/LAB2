@@ -26,12 +26,16 @@ namespace LAB2 {
         }
 
         public void MenuPresent() {
+
+
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write($"\n{ProductId}) {ProductName}");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("\nPrice / HG:  ");
             Console.Write($"{Price} - SEK\n");
         }
+
+
 
 
     }

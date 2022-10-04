@@ -13,6 +13,7 @@ namespace LAB2 {
 
     public class Customer {
 
+
         private double _usd = 0.090D;
         private double _eur = 0.092D;
         private double _sek = 1.00D;
@@ -56,17 +57,19 @@ namespace LAB2 {
             private set { _password = value; }
         }
 
+
+
         public static Customer LogIn() {
 
             Console.Clear();
             string user = string.Empty;
             string password = string.Empty;
 
-            Console.WriteLine("Enter Your Username:");
+            Console.WriteLine("Enter Your Username:");                                                                  // Fixa list och jämför värdena
             user = Console.ReadLine();
-            while (user == (string.Empty)) {
+            while (user == (string.Empty) || user.Length < 5) {
                 Console.Clear();
-                Console.WriteLine("Enter A Valid Username!");
+                Console.WriteLine("Invalid Username, Try Again.");
                 user = Console.ReadLine();
             }
 
@@ -74,9 +77,9 @@ namespace LAB2 {
             Console.WriteLine("Enter Your Password:");
             password = Console.ReadLine();
             Console.Clear();
-            while (password == (string.Empty)) {
+            while (password == (string.Empty) || password.Length < 5) {
                 Console.Clear();
-                Console.WriteLine("Invalid Password. Try Again!");
+                Console.WriteLine("Invalid Or Wrong Password, Try Again!");
                 password = Console.ReadLine();
 
             }
@@ -84,7 +87,7 @@ namespace LAB2 {
             Console.Clear();
             Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"[Welcome {user}]");
+            Console.WriteLine($"Welcome {user}");
             Console.ResetColor();
             return null;
 
@@ -96,25 +99,49 @@ namespace LAB2 {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("[Create A New User]\n");
             Console.ResetColor();
-            Console.WriteLine("Choose Your Username:");
+            Console.WriteLine("Choose Your Username: (Minimum 5 Characters)");
             string user = Console.ReadLine();
-            Console.WriteLine("Choose Your Password:");
-            string password = Console.ReadLine();
-            Console.WriteLine("Please Confirm Your Password:");
-            string confirm = Console.ReadLine();
+            while (user == (string.Empty) || user.Length < 5) {
+
+                Console.WriteLine("Invalid Username, Enter A Valid Username.  (Minimum 5 Characters)\n");
+                user = Console.ReadLine();
+            }
+
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("[Create A New User]\n");
+            Console.ResetColor();
+            Console.WriteLine($"Username Chosen: {user}");
+            Console.WriteLine("\nChoose Your Password:");
+            string password = Console.ReadLine();
+            while (password == (string.Empty) || password.Length < 5) {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("[Create A New User]\n");
+                Console.ResetColor();
+                Console.WriteLine($"Username Chosen: {user}");
+                Console.WriteLine("Enter A Valid Password, Try Again!");
+                password = Console.ReadLine();
+
+            }
+
+            Console.WriteLine("\nPlease Confirm Your Password:");
+            string confirm = Console.ReadLine();
+
 
             for (int i = 0; i <= 2; i++) {
                 if (confirm != password) {
-                    Console.WriteLine("Password Does Not Match, Please Try Again");
+
+                    Console.WriteLine("Password Does Not Match, Try Again");
                     confirm = Console.ReadLine();
 
 
                 } else if (confirm == password) {
                     Customer cust = new Customer(user, password);
-                    Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
+                    Console.Clear();
+                    Console.WriteLine($"\nLogin Sucessful @ {DateTime.Now}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"[Welcome {user}]");
+                    Console.WriteLine($"\nWelcome to my shop, {user} ");
                     Console.ResetColor();
                     return cust;
 
@@ -144,9 +171,11 @@ namespace LAB2 {
                 }
             }
         }
-        public Customer ProductAdder() {
+        public static Customer ProductAdder() {
             int input = 10;
+            Console.WriteLine("Add products to your cart");
             while (input != 0) {
+                input = int.Parse(Console.ReadLine());
 
             }
             return null;
