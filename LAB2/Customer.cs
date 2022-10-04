@@ -87,7 +87,7 @@ namespace LAB2 {
             Console.Clear();
             Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Welcome {user}");
+            Console.WriteLine($"\nWelcome {user}");
             Console.ResetColor();
             return null;
 
