@@ -153,12 +153,12 @@ namespace LAB2
             _customerId = customerId;
             _password = password;
             _cart = new List<Product>();
-            var tier;
+            
 
-            Console.WriteLine("Lets roll about your tier!");
+            /*Console.WriteLine("Lets roll about your tier!");
             Random rnd= new Random();
             rnd.Next(1,101);
-            Console.WriteLine(rnd);
+            Console.WriteLine(rnd);*/
         }
     }
 }

@@ -17,6 +17,8 @@ public class Product {
     public int ProductId;
 
 
+
+
     public string ProductName {
         get {
             return _productName;
