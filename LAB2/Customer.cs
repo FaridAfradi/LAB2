@@ -136,7 +136,7 @@ namespace LAB2 {
                     confirm = Console.ReadLine();
 
 
-                } else if (confirm == password) {
+                } else if (confirm == password) {                                               // Fixa property och lägg ihop produkterna
                     Customer cust = new Customer(user, password);
                     Console.Clear();
                     Console.WriteLine($"\nLogin Sucessful @ {DateTime.Now}");
@@ -171,14 +171,22 @@ namespace LAB2 {
                 }
             }
         }
-        public static Customer ProductAdder() {
+        public void ProductAdder(Product product) {                                 // try catch
             int input = 10;
-            Console.WriteLine("Add products to your cart");
+            Console.WriteLine("To add products, enter product number + enter");
             while (input != 0) {
                 input = int.Parse(Console.ReadLine());
 
+                if (input == 1)
+                {
+                    _cart.Add(product);
+                    Console.WriteLine($"");
+                }
+
+                
+
             }
-            return null;
+            
         }
         public void addToCart(Product product) {
             _cart.Add(product);
@@ -199,7 +207,8 @@ namespace LAB2 {
 
         }
 
-        public Customer(string customerId, string password) {
+        public Customer(string customerId, string password)
+        {
 
             _customerId = customerId;
             _password = password;
@@ -209,7 +218,33 @@ namespace LAB2 {
             Random rnd = new Random();
             rnd.Next(1, 101);
             Console.WriteLine(rnd);*/
+
         }
+
+        
+
+
+        public override string ToString()
+        {
+
+            var temp = "";
+
+            foreach (var ble in _cart) 
+            {
+                temp += ble.ProductName+ "\n";
+
+            }
+
+            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nCart:\n{temp}";
+
+            //_cart.Select(x=>x.ProductName + " ").ToString()
+
+
+
+
+        }
+
+
     }
 
 

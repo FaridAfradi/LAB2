@@ -1,7 +1,7 @@
-Knatte:123/0
-Fnatte:321/0
-Tjatte:213/0
-Farid:lösenord/1
+Knatte:123
+Fnatte:321
+Tjatte:213
+Farid:lösenord
 
 
 -Fixa en split (in med värderna i en array) - set tier på user via en RNG

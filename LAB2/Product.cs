@@ -35,7 +35,11 @@ namespace LAB2 {
             Console.Write($"{Price} - SEK\n");
         }
 
+        
+        
 
+
+        
 
 
     }
