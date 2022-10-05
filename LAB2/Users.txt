@@ -16,3 +16,15 @@ https://learn.microsoft.com/en-us/dotnet/api/system.io.file?view=net-7.0
 - Fixa Public override ToString() till alla klasser
 - kolla in Basic/Bronze/silver/gold - (Separata klasser eller en klass med olika properties)
 - Få ut path till folder/med texten
+
+
+         } else if (confirm == password) {                                               // Fixa property och lägg ihop produkterna
+                    Customer cust = new Customer(user, password);
+                    Console.Clear();
+                    Console.WriteLine($"\nLogin Sucessful @ {DateTime.Now}");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"\nWelcome to my shop, {user}!\n ");
+                    Console.ResetColor();
+                    return cust;
+
+                }
