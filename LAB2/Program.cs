@@ -1,19 +1,6 @@
-﻿using LAB2;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
+using LAB2;
 
-// Fixa current customer använder programmet.
-
-var customers = new List<Customer>();
-customers.Add(new Customer("Knatte", "123"));
-customers.Add(new Customer("Fnatte", "321"));
-customers.Add(new Customer("Tjatte", "213"));
 
 var menu = new List<Product>();
 menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });
@@ -23,94 +10,104 @@ menu.Add(new Product { ProductId = 4, ProductName = "Parsley", Price = 17.95D })
 menu.Add(new Product { ProductId = 5, ProductName = "Rosemary", Price = 14.95D });
 menu.Add(new Product { ProductId = 6, ProductName = "Chive", Price = 19.95D });
 
-void AskCustomer() {
+void MenuAdd() {
 
     int input = 10;
     while (input != 0) {
 
-        Console.WriteLine("What products do you want to add to your cart?");
+        Console.WriteLine("## Add Products To Your Cart ##");
+        Console.ForegroundColor= ConsoleColor.Red;
+        Console.WriteLine("To Exit Menu, press 0");
 
-        for (int i = 0; i < menu.Count; i++) {
+        for (int i = 0; i < menu.Count; i++) 
+        {
             menu[i].MenuPresent();
-
-        }
-        input = int.Parse(Console.ReadLine());                                                              // Try catch
-        if (input == 1) {
-            customers[customers.Count - 1].addToCart(menu[0]);
         }
 
-        customers[customers.Count - 1].CartPresent();
-        Thread.Sleep(1500);
+
+
+        try
+        {
+
+            input = int.Parse(Console.ReadLine());
+            if (input == 1) { Customer._customerList[^1].addToCart(menu[0]);}
+            else if (input == 2){ Customer._customerList[^1].addToCart(menu[1]);} 
+            else if (input == 3) { Customer._customerList[^1].addToCart(menu[2]);} 
+            else if (input == 4) { Customer._customerList[^1].addToCart(menu[3]);} 
+            else if (input == 5) { Customer._customerList[^1].addToCart(menu[4]);} 
+            else if (input == 6) { Customer._customerList[^1].addToCart(menu[5]);}
+            else if (input == 0) {Console.Clear(); break;}
+            else
+            {
+                Console.WriteLine("Enter a valid number");
+            }
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("\nDon't f*k around!");
+        }
+
+        Customer._customerList[^1].CartPresent();
+        Thread.Sleep(1000);
         Console.Clear();
     }
 }
 
-
 void MainMenu() {
 
     // Console.Clear();
-    while (true) {
+    while (true)
+    {
+        bool loginSucess = false;
         int userPick;
+        Console.Clear();
         try {
             Console.WriteLine("1. Log in");
             Console.WriteLine("2. Create new user");
             userPick = int.Parse(Console.ReadLine());
             if (userPick == 1) {
-                Customer.LogIn();
+                loginSucess = Customer.LogIn();
             } else if (userPick == 2) {
-                customers.Add(Customer.NewCustomer());
+                //customers.Add(Customer.NewCustomer());
+                Customer._customerList.Add(Customer.NewCustomer());
             }
-            break;
+
+            if (loginSucess)
+            {
+                break;
+            }
 
         } catch (Exception wrong) {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Invalid Choice, Choose 1 Or 2\n");
+            Thread.Sleep(1500);
+            Console.Clear();
             Console.ResetColor();
         }
-
-
     }
 }
 
-while (true) {
-
-    MainMenu();
-    Customer.LogIn();
-    AskCustomer();
-
-    for (int i = 0; i < customers.Count; i++) {
-        Console.WriteLine(customers[i].CustomerId);
-
-    }
+void SubMenu()
+{
+    Console.WriteLine("1. Show Cart");
+    Console.WriteLine("2. Show Total Price");
+    Console.WriteLine("3. Show Total Price In USD");
+    Console.WriteLine("3. Show Total Price In EUR");
+    
+}
 
 
-    customers[customers.Count - 1].CartPresent();
 
-    customers[customers.Count - 1].addToCart(menu[0]);
-    customers[customers.Count - 1].addToCart(menu[2]);
-    customers[customers.Count - 1].addToCart(menu[3]);
 
-    customers[customers.Count - 1].CartPresent();
-
-    customers[customers.Count - 1].ConvertCurrencyUSD(customers[customers.Count - 1].TotalPrice);
-    customers[customers.Count - 1].CartPresent();
-
-    Console.WriteLine(customers[^1]);
-
+MainMenu();
+while (true) 
+{
+    
+    MenuAdd();
+    //Console.WriteLine(Customer[^1].ToString());                                             // Fixa tostring
     Console.ReadLine();
-
-    for (int i = 0; i < menu.Count; i++) {
-
-        menu[i].MenuPresent();
-
-    }
-
-
-
-    Console.ReadLine();
-
-
 
 
 }
