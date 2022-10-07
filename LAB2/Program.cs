@@ -3,6 +3,9 @@ using System.Reflection.Metadata.Ecma335;
 using LAB2;
 using Microsoft.VisualBasic.CompilerServices;
 
+/// <summary>
+/// //////////////////////////////////////////////////////////// DENNA ÄR RÄTT
+/// </summary>
 
 var menu = new List<Product>();
 menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });                               // Add items to Menu (list)
