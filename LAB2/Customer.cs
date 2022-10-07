@@ -59,7 +59,7 @@ namespace LAB2 {
 
                 var distinctCart = _cart.Distinct();
                 
-                foreach (var disctinctProd in distinctCart)                              // Add a distinct cart for adding multiple items
+                foreach (var disctinctProd in distinctCart)                              
                 {
                     var ammount = 0;
                     ammount = _cart.Count(x => x == disctinctProd);
@@ -98,15 +98,34 @@ namespace LAB2 {
 
         public override string ToString() {                                                        // print info
 
+
             var temp = "";
 
-            foreach (var item in _cart) {
+            foreach (var item in Cart) {            //_cart
                 temp += item.ProductName + "\n";
 
             }
-            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nCart:\n{temp}";
 
-            _cart.Select(x => x.ProductName + " ").ToString();
+            var distinctCart = _cart.Distinct();
+            foreach (var disctinctProd in distinctCart) 
+            {
+                var ammount = 0;
+                ammount = _cart.Count(x => x == disctinctProd);
+                Console.WriteLine($"{ammount}x {disctinctProd.ProductName}");
+
+
+            }
+
+            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nCart:\n{temp.ToString()}";
+
+
+
+                                                                                                                                     // ta bort temp.ToString()
+
+            // _cart.Select(x => x.ProductName + " ").ToString();
+
+
+
 
         }
 

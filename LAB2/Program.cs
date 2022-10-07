@@ -117,7 +117,7 @@ void SubMenu()
     Console.WriteLine("4. Print My Info");
 }
 
-    static Customer NewCustomer()
+    static Customer NewCustomer()                                                                                                                       // static Customer
     {
 
         Console.Clear();
