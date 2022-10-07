@@ -25,17 +25,15 @@ Customer? currentCustomer = null;
 void MenuAdd() {                                                                                            // Method for adding products to menu
 
     int input = 10;
-    
-    
-     while (input != 0)
-     {
-         if (currentCustomer.TotalPrice > 10.00D)
-         {
-             currentCustomer.CartPresent();
-         }
-         
+
+
+    while (input != 0) {
+        if (currentCustomer.TotalPrice > 10.00D) {
+            currentCustomer.CartPresent();
+        }
+
         Console.WriteLine("\nAdd Products To Your Cart ");
-        Console.ForegroundColor= ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("To Exit Menu, press 0");
 
         for (int i = 0; i < menu.Count; i++)                                                                        // Show menu for adding products in method                                                           
@@ -43,29 +41,19 @@ void MenuAdd() {                                                                
             menu[i].MenuPresent();
         }
 
-        try
-        {
+        try {
 
             input = int.Parse(Console.ReadLine());
-            if (input == 1) { currentCustomer.addToCart(menu[0]);}                                         // add items until user exits
-            else if (input == 2){ currentCustomer.addToCart(menu[1]);} 
-            else if (input == 3) { currentCustomer.addToCart(menu[2]);} 
-            else if (input == 4) { currentCustomer.addToCart(menu[3]);} 
-            else if (input == 5) { currentCustomer.addToCart(menu[4]);} 
-            else if (input == 6) { currentCustomer.addToCart(menu[5]);}
-            else if (input == 0) {Console.Clear(); break;}
-            else
-            {
+            if (input == 1) { currentCustomer.addToCart(menu[0]); }                                         // add items until user exits
+            else if (input == 2) { currentCustomer.addToCart(menu[1]); } else if (input == 3) { currentCustomer.addToCart(menu[2]); } else if (input == 4) { currentCustomer.addToCart(menu[3]); } else if (input == 5) { currentCustomer.addToCart(menu[4]); } else if (input == 6) { currentCustomer.addToCart(menu[5]); } else if (input == 0) { Console.Clear(); break; } else {
                 Console.WriteLine("Enter a valid number");
             }
-            
-        }
-        catch (Exception errorInput)
-        {
+
+        } catch (Exception errorInput) {
             Console.WriteLine("Invalid Input");
         }
 
-        
+
         Thread.Sleep(1000);
         Console.Clear();
     }
@@ -73,29 +61,25 @@ void MenuAdd() {                                                                
 
 void MainMenu() {
 
-    while (currentCustomer == null)
-    {
+    while (currentCustomer == null) {
         Console.Clear();
         try {
             Console.WriteLine("1. Log in");
             Console.WriteLine("2. Create new user");
             int userPick = int.Parse(Console.ReadLine());
 
-            if (userPick == 1)
-            {
+            if (userPick == 1) {
                 LogIn();
 
 
-            } else if (userPick == 2)
-            {
+            } else if (userPick == 2) {
 
 
                 customers.Add(NewCustomer());
 
             }
 
-            if (currentCustomer != null)
-            {
+            if (currentCustomer != null) {
                 break;
             }
 
@@ -110,8 +94,7 @@ void MainMenu() {
     }
 }
 
-void SubMenu()
-{
+void SubMenu() {
 
     int input = 0;
     Console.WriteLine("1. Show Cart");
@@ -121,149 +104,127 @@ void SubMenu()
     Console.WriteLine("4. Print My Info");
 }
 
-    static Customer NewCustomer()                                                                                                                       // static Customer
-    {
-        Customer cust = new Customer();
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("[Create A New User]\n");
-        Console.ResetColor();
-        Console.WriteLine("Choose Your Username, Minimum 5 Characters");
-        string user = Console.ReadLine();
-        while (user == (string.Empty) || user.Length < 5)
-        {
+static Customer NewCustomer()                                                                                                                       // static Customer
+{
+    Customer cust = new Customer();
+    Console.Clear();
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("[Create A New User]\n");
+    Console.ResetColor();
+    Console.WriteLine("Choose Your Username, Minimum 5 Characters");
+    string user = Console.ReadLine();
+    while (user == (string.Empty) || user.Length < 5) {
 
-            Console.WriteLine("Invalid Username, Enter A Valid Username. Minimum 5 Characters)\n");
-            user = Console.ReadLine();
-        }
+        Console.WriteLine("Invalid Username, Enter A Valid Username. Minimum 5 Characters)\n");
+        user = Console.ReadLine();
+    }
 
+    Console.Clear();
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("[Create A New User]\n");
+    Console.ResetColor();
+    Console.WriteLine($"Username Chosen: {user}");
+    Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
+    string password = Console.ReadLine();
+    while (password == (string.Empty) || password.Length < 5) {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("[Create A New User]\n");
         Console.ResetColor();
         Console.WriteLine($"Username Chosen: {user}");
+        Console.WriteLine("Invalid password.");
         Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
-        string password = Console.ReadLine();
-        while (password == (string.Empty) || password.Length < 5)
-        {
+        password = Console.ReadLine();
+
+    }
+
+    Console.WriteLine("\nConfirm Your Password:");
+    string confirm = Console.ReadLine();
+    int count = 1;
+    while (true) {
+
+        if (!confirm.Equals(password)) {
+            Console.WriteLine("Password Do Not Match, Try Again");
+            confirm = Console.ReadLine();
+            count++;
+
+        }
+
+        if (count == 3) {
+            Console.WriteLine("Password Confirmation Failed. Returning To Main Menu\n");
+            Thread.Sleep(1500);
+            break;
+
+        } else if (confirm == password) {
+            Customer cust1 = new Customer(user, password);
             Console.Clear();
+            Console.WriteLine($"\nAccount Created @ {DateTime.Now}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("[Create A New User]\n");
+            Console.WriteLine($"Your Username: {user}\n ");
             Console.ResetColor();
-            Console.WriteLine($"Username Chosen: {user}");
-            Console.WriteLine("Invalid password.");
-            Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
-            password = Console.ReadLine();
-
+            Console.WriteLine("\nRe-directing to Login Screen ");
+            Thread.Sleep(2000);
+            return cust1;
         }
+    }
 
-        Console.WriteLine("\nConfirm Your Password:");
-        string confirm = Console.ReadLine();
-        int count = 1;
-        while (true)
-        {
+    return cust;
+}
 
-            if (!confirm.Equals(password))
+void LogIn() {
+
+    Console.Clear();
+    Console.WriteLine("Enter Your Username:");
+    string user = Console.ReadLine();
+    Console.WriteLine("Enter Your Password:");
+    string password = Console.ReadLine();
+
+    foreach (var customer in customers) {
+        if (customer.CustomerId.Equals(user)) {
+            if (customer.Password.Equals(password)) // (customer.Password.Equals(password))
             {
-                Console.WriteLine("Password Do Not Match, Try Again");
-                confirm = Console.ReadLine();
-                count++;
-
-            }
-
-            if (count == 3)
-            {
-                Console.WriteLine("Password Confirmation Failed. Returning To Main Menu\n");
-                Thread.Sleep(1500);
-                break;
-
-            }
-            else if (confirm == password)
-            {
-                Customer cust1 = new Customer(user, password);
                 Console.Clear();
-                Console.WriteLine($"\nAccount Created @ {DateTime.Now}");
+                Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"Your Username: {user}\n ");
+                Console.WriteLine($"\nWelcome {user}!\n");
+                currentCustomer = customer;
                 Console.ResetColor();
-                Console.WriteLine("\nRe-directing to Login Screen ");
-                Thread.Sleep(2000);
-                return cust1;
-                
-            }
-        }
+                break;
 
-        return cust;
-    }
-
-    void LogIn()
-    {
-
-        Console.Clear();
-        Console.WriteLine("Enter Your Username:");
-        string user = Console.ReadLine();
-        Console.WriteLine("Enter Your Password:");
-        string password = Console.ReadLine();
-
-        foreach (var customer in customers)
-        {
-            if (customer.CustomerId.Equals(user))
-            {
-                if (customer.Password.Equals(password)) // (customer.Password.Equals(password))
-                {
-                    Console.Clear();
-                    Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nWelcome {user}!\n");
-                    currentCustomer = customer;
+            } else if (!customer.Password.Equals(password)) {
+                for (int i = 0; i < 3; i++) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Wrong Password, try again");
                     Console.ResetColor();
-                    break;
+                    Console.WriteLine("Enter Your Password");
+                    Console.ReadLine();
 
                 }
 
-                else if (!customer.Password.Equals(password))
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Wrong Password, try again");
-                        Console.ResetColor();
-                        Console.WriteLine("Enter Your Password");
-                        Console.ReadLine();
-
-                    }
-
-                    Console.WriteLine("Login Failed, Returning To Login Screen.");
-                    Thread.Sleep(1200);
-                    break;
-                }
-
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nUser Does Not Exist");
-                Console.ResetColor();
-                Thread.Sleep(1000);
+                Console.WriteLine("Login Failed, Returning To Login Screen.");
+                Thread.Sleep(1200);
                 break;
             }
 
         }
 
     }
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("\nUser Does Not Exist");
+    Console.ResetColor();
+    Thread.Sleep(1000);
+}
 
 
 
 
-    MainMenu();
-    while (true)
-    {
-        for (int i = 0; i < customers.Count; i++)
-        {
-            Console.WriteLine(customers[i].CustomerId);
-        }
-
-        MenuAdd();
-        Console.WriteLine(currentCustomer.ToString()); // Fixa tostring
-        Console.ReadLine();
+MainMenu();
+while (true) {
+    for (int i = 0; i < customers.Count; i++) {
+        Console.WriteLine(customers[i].CustomerId);
     }
+
+    MenuAdd();
+    Console.WriteLine(currentCustomer.ToString()); // Fixa tostring
+    Console.ReadLine();
+}
