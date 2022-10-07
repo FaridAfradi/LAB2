@@ -101,36 +101,20 @@ namespace LAB2 {
 
             var temp = "";
 
-            foreach (var item in Cart) {            //_cart
+            foreach (var item in Cart) 
+            {            //_cart
                 temp += item.ProductName + "\n";
-
-            }
-
-            var distinctCart = _cart.Distinct();
-            foreach (var disctinctProd in distinctCart) 
-            {
-                var ammount = 0;
-                ammount = _cart.Count(x => x == disctinctProd);
-                Console.WriteLine($"{ammount}x {disctinctProd.ProductName}");
-
-
             }
 
             return $"\nUsername: {_customerId}\nPassword: {_password}\n\nCart:\n{temp.ToString()}";
 
 
-
-                                                                                                                                     // ta bort temp.ToString()
-
             // _cart.Select(x => x.ProductName + " ").ToString();
-
 
 
 
         }
 
-
-        
 
     }
 
