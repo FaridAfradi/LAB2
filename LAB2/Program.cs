@@ -125,7 +125,7 @@ void SubMenu()
 
     static Customer NewCustomer()                                                                                                                       // static Customer
     {
-
+        Customer cust = new Customer();
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("[Create A New User]\n");
@@ -182,7 +182,7 @@ void SubMenu()
             }
             else if (confirm == password)
             {
-                Customer cust = new Customer(user, password);
+                Customer cust1 = new Customer(user, password);
                 Console.Clear();
                 Console.WriteLine($"\nAccount Created @ {DateTime.Now}");
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -190,11 +190,11 @@ void SubMenu()
                 Console.ResetColor();
                 Console.WriteLine("\nRe-directing to Login Screen ");
                 Thread.Sleep(2000);
-                return cust;
+                return cust1;
             }
         }
 
-        return null;
+        return cust;
     }
 
     void LogIn()
