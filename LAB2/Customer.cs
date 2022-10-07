@@ -44,79 +44,17 @@ namespace LAB2 {
             private set { _password = value; }
         }
 
-        public static Customer NewCustomer() {
 
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("[Create A New User]\n");
-            Console.ResetColor();
-            Console.WriteLine("Choose Your Username, Minimum 5 Characters");                            
-            string user = Console.ReadLine();
-            while (user == (string.Empty) || user.Length < 5) {
-
-                Console.WriteLine("Invalid Username, Enter A Valid Username. Minimum 5 Characters)\n");
-                user = Console.ReadLine();
-            }
-
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("[Create A New User]\n");
-            Console.ResetColor();
-            Console.WriteLine($"Username Chosen: {user}");                                                 
-            Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
-            string password = Console.ReadLine();
-            while (password == (string.Empty) || password.Length < 5) {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("[Create A New User]\n");                                                
-                Console.ResetColor();
-                Console.WriteLine($"Username Chosen: {user}");
-                Console.WriteLine("Invalid password.");
-                Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
-                password = Console.ReadLine();
-
-            }             
-
-            Console.WriteLine("\nConfirm Your Password:");                                                   
-            string confirm = Console.ReadLine();
-            int count = 1;
-            while (true) {
-
-                if (confirm != password) {
-                    Console.WriteLine("Password Do Not Match, Try Again");
-                    confirm = Console.ReadLine();
-                    count++;
-
-                }
-                if (count == 3) {
-                    Console.WriteLine("Password Confirmation Failed. Returning To Main Menu\n");            
-                    Thread.Sleep(1500);
-                    break;
-
-                } else if (confirm == password) {                                                           
-                    Customer cust = new Customer(user, password);
-                    Console.Clear();
-                    Console.WriteLine($"\nAccount Created @ {DateTime.Now}");
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"Your Username: {user}\n ");
-                    Console.ResetColor();
-                    Console.WriteLine("\nRe-directing to Login Screen ");
-                    Thread.Sleep(2000);
-                    return cust;
-                }
-            }
-            return null;
-        }
         public void CartPresent() {
 
             if (TotalPrice < 11.85D) {                                                           // my lowest price item sets condition of empty cart (null prints wrong info)
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Your Cart Is Empty");
+                Console.WriteLine("Your Cart Is Currently Empty");
                 Console.ResetColor();
 
             } else if (_cart != null) {                                                          // (IF) totalprice do not meed condition
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Your cart does currently contains:");
+                Console.WriteLine($"Your Cart Currently Contains:");
                 Console.ResetColor();
 
                 var distinctCart = _cart.Distinct();
