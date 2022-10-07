@@ -88,11 +88,9 @@ void MainMenu() {
 
             } else if (userPick == 2)
             {
-                customers.Add(currentCustomer);
-                NewCustomer();
-               
-                
-                //customers.Add(new Customer());
+
+
+                customers.Add(NewCustomer());
 
             }
 
