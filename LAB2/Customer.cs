@@ -11,7 +11,7 @@ namespace LAB2 {
         private string _customerId;
         private string _password;
 
-        private List<Product> _cart; // Skapa en kundlista
+        private List<Product> _cart; 
 
         public List<Product> Cart {
             get { return _cart; }
@@ -22,14 +22,14 @@ namespace LAB2 {
             get {
                 _totalPrice = 0.0D;
 
-                for (int i = 0; i < _cart.Count; i++) {
+                for (int i = 0; i < _cart.Count; i++) {                                             // calculate total cost
                     _totalPrice += _cart[i].Price;
                 }
 
                 return _totalPrice;
             }
             private set {
-                _totalPrice = TotalPrice; // testa dig fram
+                _totalPrice = TotalPrice; 
             }
         }
 
@@ -43,57 +43,14 @@ namespace LAB2 {
             get { return _password; }
             private set { _password = value; }
         }
-        public static bool VerifyLogin(string username, string password) 
-        {
-            foreach (Customer customer in _customerList) {
-                if (customer.CustomerId == username) {
-                    if (customer.Password == password) {
-                        return true;
 
-                    } else {
-                        Console.WriteLine("Password Do Not Match");
-                    }
-                }
-            }
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nWrong User/Password.. Try again.");
-            Console.ResetColor();
-            Thread.Sleep(1000);
-            return false;
-            
-        }
-        public static bool LogIn() {
-
-            Console.Clear();
-            string user = string.Empty;
-            string password = string.Empty;
-
-            Console.WriteLine("Enter Your Username:");
-            user = Console.ReadLine();                                                                                            // Fixa list och jämför värdena
-            Console.WriteLine("Enter Your Password:");
-            password = Console.ReadLine();
-
-            if (VerifyLogin(user, password)) 
-            {
-                Console.Clear();
-                Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"\nWelcome {user}!\n");
-                Console.ResetColor();
-                return true;
-
-            }
-
-            return false;
-        }
         public static Customer NewCustomer() {
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("[Create A New User]\n");
             Console.ResetColor();
-            Console.WriteLine("Choose Your Username, Minimum 5 Characters");
+            Console.WriteLine("Choose Your Username, Minimum 5 Characters");                            
             string user = Console.ReadLine();
             while (user == (string.Empty) || user.Length < 5) {
 
@@ -105,13 +62,13 @@ namespace LAB2 {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("[Create A New User]\n");
             Console.ResetColor();
-            Console.WriteLine($"Username Chosen: {user}");
+            Console.WriteLine($"Username Chosen: {user}");                                                 
             Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
             string password = Console.ReadLine();
             while (password == (string.Empty) || password.Length < 5) {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("[Create A New User]\n");
+                Console.WriteLine("[Create A New User]\n");                                                
                 Console.ResetColor();
                 Console.WriteLine($"Username Chosen: {user}");
                 Console.WriteLine("Invalid password.");
@@ -120,7 +77,7 @@ namespace LAB2 {
 
             }             
 
-            Console.WriteLine("\nConfirm Your Password:");
+            Console.WriteLine("\nConfirm Your Password:");                                                   
             string confirm = Console.ReadLine();
             int count = 1;
             while (true) {
@@ -132,19 +89,19 @@ namespace LAB2 {
 
                 }
                 if (count == 3) {
-                    Console.WriteLine("Password Confirmation Failed. Returning To Main Menu\n");
+                    Console.WriteLine("Password Confirmation Failed. Returning To Main Menu\n");            
                     Thread.Sleep(1500);
                     break;
 
-                } else if (confirm == password) {
+                } else if (confirm == password) {                                                           
                     Customer cust = new Customer(user, password);
                     Console.Clear();
                     Console.WriteLine($"\nAccount Created @ {DateTime.Now}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nWelcome, {user}!\n ");
+                    Console.WriteLine($"Your Username: {user}\n ");
                     Console.ResetColor();
                     Console.WriteLine("\nRe-directing to Login Screen ");
-                    Thread.Sleep(2500);
+                    Thread.Sleep(2000);
                     return cust;
                 }
             }
@@ -152,19 +109,19 @@ namespace LAB2 {
         }
         public void CartPresent() {
 
-            if (TotalPrice < 11.85D) {                                          // my lowest price item
+            if (TotalPrice < 11.85D) {                                                           // my lowest price item sets condition of empty cart (null prints wrong info)
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Your Cart Is Empty");
                 Console.ResetColor();
 
-            } else if (_cart != null) {
+            } else if (_cart != null) {                                                          // (IF) totalprice do not meed condition
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Your cart does currently contains:");
                 Console.ResetColor();
 
                 var distinctCart = _cart.Distinct();
                 
-                foreach (var disctinctProd in distinctCart)
+                foreach (var disctinctProd in distinctCart)                              // Add a distinct cart for adding multiple items
                 {
                     var ammount = 0;
                     ammount = _cart.Count(x => x == disctinctProd);
@@ -173,25 +130,25 @@ namespace LAB2 {
             }
         }
 
-        public void addToCart(Product product) {
+        public void addToCart(Product product) {                                                // print info
             _cart.Add(product);
             Console.WriteLine("\n1 x " + product.ProductName + " added to cart.\n");
         }
-        public void ConvertCurrencyUSD(double sek) {
+        public void ConvertCurrencyUSD(double sek) {                                            // print info
             _usd = (sek * 0.090D);
             Console.WriteLine($"Price In USD: {_usd}");
         }
-        public void ConvertCurrencyEUR(double sek) {
+        public void ConvertCurrencyEUR(double sek) {                                            // print info
             _eur = (sek * 0.092D);
             Console.WriteLine($"Price In EUR: {_eur}");
         }
         public Customer() 
         {
         }
-        public Customer(string customerId, string password) {
+        public Customer(string customerId, string customerPassword) {
 
             _customerId = customerId;
-            _password = password;
+            _password = customerPassword;
             _cart = new List<Product>();
 
             /*Console.WriteLine("Lets roll about your tier!");
@@ -200,23 +157,13 @@ namespace LAB2 {
             Console.WriteLine(rnd);*/
         }
 
-        public static List<Customer> _customerList = new List<Customer>() // 
 
-        {
-            new Customer("Knatte", "123"),
-
-            new Customer("Fnatte", "321"),
-
-            new Customer("Tjatte", "213")
-
-        };
-
-        public override string ToString() {
+        public override string ToString() {                                                        // print info
 
             var temp = "";
 
-            foreach (var ble in _cart) {
-                temp += ble.ProductName + "\n";
+            foreach (var item in _cart) {
+                temp += item.ProductName + "\n";
 
             }
             return $"\nUsername: {_customerId}\nPassword: {_password}\n\nCart:\n{temp}";
