@@ -106,7 +106,9 @@ namespace LAB2 {
                 temp += item.ProductName + "\n";
             }
 
-            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nCart:\n{temp.ToString()}";
+            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp.ToString()}";
+            
+            
 
 
             // _cart.Select(x => x.ProductName + " ").ToString();

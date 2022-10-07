@@ -34,7 +34,7 @@ void MenuAdd() {                                                                
              currentCustomer.CartPresent();
          }
          
-        Console.WriteLine("\n## Add Products To Your Cart ##");
+        Console.WriteLine("\nAdd Products To Your Cart ");
         Console.ForegroundColor= ConsoleColor.Red;
         Console.WriteLine("To Exit Menu, press 0");
 
@@ -88,8 +88,11 @@ void MainMenu() {
 
             } else if (userPick == 2)
             {
-
-                customers.Add(new Customer());
+                customers.Add(currentCustomer);
+                NewCustomer();
+               
+                
+                //customers.Add(new Customer());
 
             }
 
@@ -162,7 +165,7 @@ void SubMenu()
         while (true)
         {
 
-            if (confirm != password)
+            if (!confirm.Equals(password))
             {
                 Console.WriteLine("Password Do Not Match, Try Again");
                 confirm = Console.ReadLine();
@@ -205,7 +208,7 @@ void SubMenu()
 
         foreach (var customer in customers)
         {
-            if (customer.CustomerId == user)
+            if (customer.CustomerId.Equals(user))
             {
                 if (customer.Password.Equals(password)) // (customer.Password.Equals(password))
                 {
@@ -219,7 +222,7 @@ void SubMenu()
 
                 }
 
-                else if (customer.Password != password)
+                else if (!customer.Password.Equals(password))
                 {
                     for (int i = 0; i < 3; i++)
                     {
