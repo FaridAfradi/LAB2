@@ -189,6 +189,7 @@ void SubMenu()
                 Console.WriteLine("\nRe-directing to Login Screen ");
                 Thread.Sleep(2000);
                 return cust1;
+                
             }
         }
 
