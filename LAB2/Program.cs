@@ -105,9 +105,9 @@ void MainMenu() {
 void SubMenu()
 {
     int input;
-
     while (true)
     {
+        
         try 
         { 
             Console.ResetColor();
@@ -156,6 +156,7 @@ void SubMenu()
 
             else if (input == 5)
             {
+                Console.Clear();
                 currentCustomer.ToString();
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
