@@ -109,13 +109,15 @@ void SubMenu()
     while (true)
     {
         try 
-        {
+        { 
+            Console.ResetColor();
             Console.Clear();
             Console.WriteLine("1. Show Menu.");
             Console.WriteLine("2. Show My Cart.");
             Console.WriteLine("3. Show Total Price In USD.");
             Console.WriteLine("4. Show Total Price In EUR.");
             Console.WriteLine("5. Show My Account Information and Cart");
+            Console.WriteLine("6. Take Me To The Checkout");
             //Console.WriteLine("6. Go back.");
             Console.WriteLine("9. Close App And Show Some Awesomeness.");
             input = int.Parse(Console.ReadLine());
@@ -159,10 +161,18 @@ void SubMenu()
                 Console.ReadLine();
             }
 
-           
+            else if (input == 6)
+            {
+                Console.Clear();
+                Console.WriteLine("Thank you for your visit!");
+                break;
+            }
 
-
-
+            else if (input == 9)
+            {
+                ColorfulAnimation();
+                break;
+            }
 
         } 
         catch (Exception errorInput) 
@@ -171,11 +181,8 @@ void SubMenu()
             Console.WriteLine("Enter A Number Between 1-5");
         }
 
-
     }
 
-
-    
 }
 
 static Customer NewCustomer()                                                                                                                       // static Customer
@@ -334,11 +341,6 @@ MainMenu();
 while (true) 
 {
 
-    //for (int i = 0; i < customers.Count; i++) {
-    //    Console.WriteLine(customers[i].CustomerId);
-    //}
-
     SubMenu();
-    Console.WriteLine(currentCustomer.ToString()); // Fixa tostring
-    Console.ReadLine();
+    ColorfulAnimation();
 }
