@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Drawing;
 using System.Reflection.Metadata.Ecma335;
 using LAB2;
 using Microsoft.VisualBasic.CompilerServices;
@@ -67,6 +68,7 @@ void MenuAdd() {                                                                
 
 void MainMenu() {
 
+
     while (currentCustomer == null) {
         Console.Clear();
         try {
@@ -112,9 +114,10 @@ void SubMenu()
             Console.WriteLine("1. Show Menu.");
             Console.WriteLine("2. Show My Cart.");
             Console.WriteLine("3. Show Total Price In USD.");
-            Console.WriteLine("3. Show Total Price In EUR.");
-            Console.WriteLine("4. Print My Info");
-            Console.WriteLine("5. Go back.");
+            Console.WriteLine("4. Show Total Price In EUR.");
+            Console.WriteLine("5. Print My Info");
+            Console.WriteLine("6. Go back.");
+            Console.WriteLine("9. Close App And Show Some Awesomeness.");
             input = int.Parse(Console.ReadLine());
             if (input == 1)
             {
@@ -129,12 +132,26 @@ void SubMenu()
 
             else if (input == 3)
             {
+                Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
                 currentCustomer.ConvertCurrencyUSD(totalPrice);
                 Console.WriteLine($"Your total price in SEK is {currentCustomer.TotalPrice}");
                 Thread.Sleep(2500);
                 Console.ReadLine();
             }
+
+            else if (input == 4)
+            {
+                Console.Clear();
+                double totalPrice = currentCustomer.TotalPrice;
+                currentCustomer.ConvertCurrencyUSD(totalPrice);
+                Console.WriteLine($"Your total price in SEK is {currentCustomer.TotalPrice}");
+                Thread.Sleep(2500);
+                Console.ReadLine();
+
+            }
+
+           
 
 
 
@@ -278,7 +295,30 @@ void LogIn() {
     Thread.Sleep(1000);
 }
 
+static void ColorfulAnimation() 
+{
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 30; j++) {
+            Console.Clear();
 
+            
+            Console.Write("       . . . . o o o o o o", Color.LightGray);
+            for (int s = 0; s < j / 2; s++) {
+                Console.Write(" o", Color.LightGray);
+            }
+            Console.WriteLine();
+
+            var margin = "".PadLeft(j);
+            Console.WriteLine(margin + "                _____      o", Color.LightGray);
+            Console.WriteLine(margin + "       ____====  ]OO|_n_n__][.", Color.DeepSkyBlue);
+            Console.WriteLine(margin + "      [________]_|__|________)< ", Color.DeepSkyBlue);
+            Console.WriteLine(margin + "       oo    oo  'oo OOOO-| oo\\_", Color.Blue);
+            Console.WriteLine("   +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+", Color.Silver);
+
+            Thread.Sleep(200);
+        }
+    }
+}
 
 
 MainMenu();
