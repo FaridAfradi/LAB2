@@ -45,7 +45,13 @@ void MenuAdd() {                                                                
 
             input = int.Parse(Console.ReadLine());
             if (input == 1) { currentCustomer.addToCart(menu[0]); }                                         // add items until user exits
-            else if (input == 2) { currentCustomer.addToCart(menu[1]); } else if (input == 3) { currentCustomer.addToCart(menu[2]); } else if (input == 4) { currentCustomer.addToCart(menu[3]); } else if (input == 5) { currentCustomer.addToCart(menu[4]); } else if (input == 6) { currentCustomer.addToCart(menu[5]); } else if (input == 0) { Console.Clear(); break; } else {
+            else if (input == 2) { currentCustomer.addToCart(menu[1]); } 
+            else if (input == 3) { currentCustomer.addToCart(menu[2]); } 
+            else if (input == 4) { currentCustomer.addToCart(menu[3]); } 
+            else if (input == 5) { currentCustomer.addToCart(menu[4]); } 
+            else if (input == 6) { currentCustomer.addToCart(menu[5]); } 
+            else if (input == 0) { Console.Clear(); break; } 
+            else {
                 Console.WriteLine("Enter a valid number");
             }
 
@@ -94,14 +100,57 @@ void MainMenu() {
     }
 }
 
-void SubMenu() {
+void SubMenu()
+{
+    int input;
 
-    int input = 0;
-    Console.WriteLine("1. Show Cart");
-    Console.WriteLine("2. Show Total Price");
-    Console.WriteLine("3. Show Total Price In USD");
-    Console.WriteLine("3. Show Total Price In EUR");
-    Console.WriteLine("4. Print My Info");
+    while (true)
+    {
+        try 
+        {
+            Console.Clear();
+            Console.WriteLine("1. Show Menu.");
+            Console.WriteLine("2. Show My Cart.");
+            Console.WriteLine("3. Show Total Price In USD.");
+            Console.WriteLine("3. Show Total Price In EUR.");
+            Console.WriteLine("4. Print My Info");
+            Console.WriteLine("5. Go back.");
+            input = int.Parse(Console.ReadLine());
+            if (input == 1)
+            {
+                Console.Clear();
+                MenuAdd();
+            }
+
+            else if (input == 2)
+            {
+                currentCustomer.CartPresent();
+            }
+
+            else if (input == 3)
+            {
+                double totalPrice = currentCustomer.TotalPrice;
+                currentCustomer.ConvertCurrencyUSD(totalPrice);
+                Console.WriteLine($"Your total price in SEK is {currentCustomer.TotalPrice}");
+                Thread.Sleep(2500);
+                Console.ReadLine();
+            }
+
+
+
+
+        } 
+        catch (Exception errorInput) 
+        {
+            Console.Clear();
+            Console.WriteLine("Enter A Number Between 1-5");
+        }
+
+
+    }
+
+
+    
 }
 
 static Customer NewCustomer()                                                                                                                       // static Customer
@@ -189,15 +238,29 @@ void LogIn() {
                 Console.WriteLine($"\nWelcome {user}!\n");
                 currentCustomer = customer;
                 Console.ResetColor();
-                break;
+                return;
 
-            } else if (!customer.Password.Equals(password)) {
-                for (int i = 0; i < 3; i++) {
+            } else if (!customer.Password.Equals(password)) 
+            {
+                for (int i = 0; i < 3; i++) 
+                {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Wrong Password, try again");
                     Console.ResetColor();
                     Console.WriteLine("Enter Your Password");
-                    Console.ReadLine();
+                    password = Console.ReadLine();
+
+                    if (password.Equals(password))
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\nWelcome {user}!\n");
+                        currentCustomer = customer;
+                        Thread.Sleep(1500);
+                        Console.ResetColor();
+                        return;
+                    }
 
                 }
 
@@ -219,12 +282,15 @@ void LogIn() {
 
 
 MainMenu();
-while (true) {
-    for (int i = 0; i < customers.Count; i++) {
-        Console.WriteLine(customers[i].CustomerId);
-    }
 
-    MenuAdd();
+while (true) 
+{
+
+    //for (int i = 0; i < customers.Count; i++) {
+    //    Console.WriteLine(customers[i].CustomerId);
+    //}
+
+    SubMenu();
     Console.WriteLine(currentCustomer.ToString()); // Fixa tostring
     Console.ReadLine();
 }
