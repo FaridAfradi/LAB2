@@ -129,7 +129,10 @@ void SubMenu()
 
             else if (input == 2)
             {
+                Console.Clear();
                 currentCustomer.CartPresent();
+                Console.WriteLine("\nPress Enter To Go back");
+                Console.ReadLine();
             }
 
             else if (input == 3)
@@ -338,7 +341,6 @@ static void ColorfulAnimation()
 
 
 MainMenu();
-currentCustomer.ToString();
 
 while (true) 
 {

@@ -55,7 +55,7 @@ namespace LAB2 {
 
             } else if (_cart != null) {                                                          // (IF) totalprice do not meed condition
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Your Cart Currently Contains:");
+                Console.WriteLine($"\nYour Cart Currently Contains:");
                 Console.ResetColor();
 
                 var distinctCart = _cart.Distinct();
