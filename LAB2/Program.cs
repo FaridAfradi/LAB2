@@ -115,8 +115,8 @@ void SubMenu()
             Console.WriteLine("2. Show My Cart.");
             Console.WriteLine("3. Show Total Price In USD.");
             Console.WriteLine("4. Show Total Price In EUR.");
-            Console.WriteLine("5. Print My Info");
-            Console.WriteLine("6. Go back.");
+            Console.WriteLine("5. Show My Account Information and Cart");
+            //Console.WriteLine("6. Go back.");
             Console.WriteLine("9. Close App And Show Some Awesomeness.");
             input = int.Parse(Console.ReadLine());
             if (input == 1)
@@ -135,20 +135,28 @@ void SubMenu()
                 Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
                 currentCustomer.ConvertCurrencyUSD(totalPrice);
-                Console.WriteLine($"Your total price in SEK is {currentCustomer.TotalPrice}");
-                Thread.Sleep(2500);
+                Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
+                Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
+
             }
 
             else if (input == 4)
             {
                 Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
-                currentCustomer.ConvertCurrencyUSD(totalPrice);
-                Console.WriteLine($"Your total price in SEK is {currentCustomer.TotalPrice}");
-                Thread.Sleep(2500);
+                currentCustomer.ConvertCurrencyEUR(totalPrice);
+                Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
+                Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
 
+            }
+
+            else if (input == 5)
+            {
+                currentCustomer.ToString();
+                Console.WriteLine("\nPress Enter To Go Back");
+                Console.ReadLine();
             }
 
            
