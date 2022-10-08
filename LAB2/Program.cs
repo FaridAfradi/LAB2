@@ -338,6 +338,7 @@ static void ColorfulAnimation()
 
 
 MainMenu();
+currentCustomer.ToString();
 
 while (true) 
 {

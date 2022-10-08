@@ -4,36 +4,17 @@ public class CustomerTier : Customer
 {
 
 
-    private double _tierOne;
-
-    public double TierOne 
+    //public override string Type { get; } = nameof(CustomerTier);
+    public CustomerTier(string name, string password) : base(name, password) 
     {
-        get
-        {
-            return _tierOne; 
+        // Discount = 0.85;
 
-        }
-        set
-        {
-            _tierOne = value; 
-
-        }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
