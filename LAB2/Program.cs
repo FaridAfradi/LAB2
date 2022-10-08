@@ -181,8 +181,9 @@ void SubMenu()
         } 
         catch (Exception errorInput) 
         {
-            Console.Clear();
-            Console.WriteLine("Enter A Number Between 1-5");
+
+            Console.WriteLine("Invalid Input. Try again.");
+            Thread.Sleep(1000);
         }
 
     }
@@ -333,7 +334,9 @@ static void ColorfulAnimation()
             Console.WriteLine(margin + "      [________]_|__|________)< ", Color.DeepSkyBlue);
             Console.WriteLine(margin + "       oo    oo  'oo OOOO-| oo\\_", Color.Blue);
             Console.WriteLine("   +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+", Color.Silver);
-
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n...G 0 0 D  B Y E  M Y  L O V E R,  G O O D  B Y E  M Y  F R I E N D...");
+            Console.ResetColor();
             Thread.Sleep(200);
         }
     }
