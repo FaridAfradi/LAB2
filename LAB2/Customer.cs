@@ -49,8 +49,8 @@ namespace LAB2 {
 
             if (TotalPrice < 11.85D) {                                                           // my lowest price item sets condition of empty cart (null prints wrong info)
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Your Cart Is Currently Empty");
-                Thread.Sleep(1500);
+                Console.WriteLine("Your Cart Is Currently Empty.");
+                // Thread.Sleep(1500);
                 Console.ResetColor();
 
             } else if (_cart != null) {                                                          // (IF) totalprice do not meed condition
