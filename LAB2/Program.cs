@@ -78,7 +78,9 @@ void MainMenu() {
             int userPick = int.Parse(Console.ReadLine());
 
             if (userPick == 1) {
+
                 LogIn();
+                
 
 
             } else if (userPick == 2) {
@@ -88,8 +90,9 @@ void MainMenu() {
 
             }
 
-            if (currentCustomer != null) {
-                break;
+            if (currentCustomer != null) 
+            {                                                                              // Måste fixa
+               // break;
             }
 
         } catch (Exception wrong) {
@@ -279,6 +282,7 @@ void LogIn() {
                 Console.WriteLine($"\nWelcome {user}!\n");
                 currentCustomer = customer;
                 Console.ResetColor();
+                Thread.Sleep(1500);
                 return;
 
             } else if (!customer.Password.Equals(password)) 
@@ -291,7 +295,7 @@ void LogIn() {
                     Console.WriteLine("Enter Your Password");
                     password = Console.ReadLine();
 
-                    if (password.Equals(password))
+                    if (customer.Password.Equals(password))
                     {
                         Console.Clear();
                         Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
@@ -301,6 +305,7 @@ void LogIn() {
                         Thread.Sleep(1500);
                         Console.ResetColor();
                         return;
+                        break;
                     }
 
                 }
@@ -314,9 +319,9 @@ void LogIn() {
 
     }
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("\nUser Does Not Exist");
+    Console.WriteLine("\nUsername Does Not Exist");
     Console.ResetColor();
-    Thread.Sleep(1000);
+    Thread.Sleep(700);
 }
 
 static void ColorfulAnimation() 
