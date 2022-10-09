@@ -116,11 +116,24 @@ void SubMenu()
 
         if (input == 0)
         {
+            int doneShopping;
             Console.Clear();
-            Console.WriteLine("Thank you for your visit!");
-            Thread.Sleep(2000);
-            isRunning = false;
-            break;
+            Console.WriteLine("Are You Done Shopping?");
+            Console.WriteLine("1) Yes");
+            Console.WriteLine("2) No, take me back to shopping.");
+            doneShopping = int.Parse(Console.ReadLine());
+            if (doneShopping == 1)
+            {
+                Console.WriteLine("Thank you for your visit!");
+                Thread.Sleep(1500);
+                isRunning = false;
+                break;
+            }
+            else if (doneShopping == 2)
+            {
+                Console.WriteLine("Sure Thing!");
+            }
+            
 
         }
 
@@ -178,8 +191,8 @@ void SubMenu()
             {
 
                 Console.Clear();
-                customers[^1].ToString();
-                currentCustomer.CustomerId.ToString();
+                Console.WriteLine(currentCustomer);
+                Console.WriteLine(currentCustomer.CustomerId.ToString());
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
             }
