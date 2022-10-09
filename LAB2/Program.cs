@@ -128,12 +128,12 @@ void SubMenu()
         { 
             Console.ResetColor();
             Console.Clear();
-            Console.WriteLine("1. Show Menu.");
-            Console.WriteLine("2. Show My Cart.");
-            Console.WriteLine("3. Show Total Price In USD.");
-            Console.WriteLine("4. Show Total Price In EUR.");
-            Console.WriteLine("5. Show My Account Information and Cart");
-            Console.WriteLine("6...AWESOMENESS...");
+            Console.WriteLine("1) Show Menu.");
+            Console.WriteLine("2) Show My Cart.");
+            Console.WriteLine("3) Show Total Price In USD.");
+            Console.WriteLine("4) Show Total Price In EUR.");
+            Console.WriteLine("5) Show My Account Information and Cart");
+            Console.WriteLine("6) ...AWESOMENESS...");
             Console.WriteLine("\n0. Checkout");
             //Console.WriteLine("6. Go back.");
             
