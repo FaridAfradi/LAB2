@@ -5,8 +5,9 @@ using LAB2;
 using Microsoft.VisualBasic.CompilerServices;
 
 /// <summary>
-/// //////////////////////////////////////////////////////////// DENNA ÄR RÄTT
+/// //////////////////////////////////////////////////////////// DENNA ÄR RÄTT  
 /// </summary>
+/// - FIXA DECIMALER PÅ SEK OCH USD OCH EUR (MAX .00 2ST DECIMALER)
 
 var menu = new List<Product>();
 menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });                               // Add items to Menu (list)
@@ -107,7 +108,8 @@ void SubMenu()
     int input;
     while (true)
     {
-        
+       
+
         try 
         { 
             Console.ResetColor();
@@ -159,8 +161,10 @@ void SubMenu()
 
             else if (input == 5)
             {
+
                 Console.Clear();
                 currentCustomer.ToString();
+                Console.ReadLine();
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
             }
@@ -266,7 +270,7 @@ void LogIn() {
     string password = Console.ReadLine();
 
     foreach (var customer in customers) {
-        if (customer.CustomerId.Equals(user)) {
+        if (customer.CustomerId.Equals(user)) {                                                                             // Krashar, varför?
             if (customer.Password.Equals(password)) // (customer.Password.Equals(password))
             {
                 Console.Clear();

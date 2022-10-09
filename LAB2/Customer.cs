@@ -64,14 +64,14 @@ namespace LAB2 {
                 {
                     var ammount = 0;
                     ammount = _cart.Count(x => x == disctinctProd);
-                    Console.WriteLine($"{ammount}x {disctinctProd.ProductName}");
+                    Console.WriteLine($"{ammount}x (HG) {disctinctProd.ProductName}");
                 }
             }
         }
 
         public void addToCart(Product product) {                                                // print info
             _cart.Add(product);
-            Console.WriteLine("\n1 x " + product.ProductName + " added to cart.\n");
+            Console.WriteLine("\n1x (HG) " + product.ProductName + " added to cart.\n");
         }
         public void ConvertCurrencyUSD(double sek) {                                            // print info
             _usd = (sek * 0.090D);
@@ -107,13 +107,9 @@ namespace LAB2 {
                 temp += item.ProductName + "\n";
             }
 
-            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp.ToString()}";
-            
-            
+            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp}";
 
-
-            // _cart.Select(x => x.ProductName + " ").ToString();
-
+            //_cart.Select(x => x.ProductName + " ").ToString();
 
 
         }
