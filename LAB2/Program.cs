@@ -166,8 +166,8 @@ void SubMenu()
             {
 
                 Console.Clear();
-                currentCustomer.ToString();
-                Console.ReadLine();
+                customers[^1].ToString();
+                currentCustomer.CustomerId.ToString();
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
             }
@@ -305,14 +305,14 @@ void LogIn() {
                         Thread.Sleep(1500);
                         Console.ResetColor();
                         return;
-                        break;
+                        
                     }
 
                 }
 
                 Console.WriteLine("Login Failed, Returning To Login Screen.");
                 Thread.Sleep(1200);
-                break;
+                return;
             }
 
         }
