@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Drawing;
 using System.Reflection.Metadata.Ecma335;
+using System.Xml;
 using LAB2;
 using Microsoft.VisualBasic.CompilerServices;
 
@@ -108,10 +109,20 @@ void MainMenu() {
 
 void SubMenu()
 {
-    int input;
-    while (true)
+    int input = 10;
+    bool isRunning = true;
+    while (isRunning)
     {
-       
+
+        if (input == 0)
+        {
+            Console.Clear();
+            Console.WriteLine("Thank you for your visit!");
+            Thread.Sleep(2000);
+            isRunning = false;
+            break;
+
+        }
 
         try 
         { 
@@ -122,9 +133,10 @@ void SubMenu()
             Console.WriteLine("3. Show Total Price In USD.");
             Console.WriteLine("4. Show Total Price In EUR.");
             Console.WriteLine("5. Show My Account Information and Cart");
-            Console.WriteLine("6. Take Me To The Checkout");
+            Console.WriteLine("6. Close App And Show Some Awesomeness.");
+            Console.WriteLine("\n0. Take Me To The Checkout");
             //Console.WriteLine("6. Go back.");
-            Console.WriteLine("9. Close App And Show Some Awesomeness.");
+            
             input = int.Parse(Console.ReadLine());
             if (input == 1)
             {
@@ -172,14 +184,8 @@ void SubMenu()
                 Console.ReadLine();
             }
 
-            else if (input == 6)
-            {
-                Console.Clear();
-                Console.WriteLine("Thank you for your visit!");
-                break;
-            }
 
-            else if (input == 9)
+            else if (input == 6)
             {
                 ColorfulAnimation();
                 break;
@@ -353,10 +359,5 @@ static void ColorfulAnimation()
 
 
 MainMenu();
+SubMenu();
 
-while (true) 
-{
-
-    SubMenu();
-    ColorfulAnimation();
-}
