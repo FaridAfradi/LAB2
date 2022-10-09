@@ -170,7 +170,6 @@ void SubMenu()
                 Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
                 currentCustomer.ConvertCurrencyUSD(totalPrice);
-                //Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
 
