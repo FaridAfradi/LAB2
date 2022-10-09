@@ -161,7 +161,10 @@ void SubMenu()
             {
                 Console.Clear();
                 currentCustomer.CartPresent();
-                Console.WriteLine($"\nTotal Price For All Products: {currentCustomer.TotalPrice} SEK");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write($"\nTotal Price ");
+                Console.ResetColor();
+                Console.WriteLine($"For All Products: { currentCustomer.TotalPrice} SEK");
                 Console.WriteLine("\nPress Enter To Go back");
                 Console.ReadLine();
             }
