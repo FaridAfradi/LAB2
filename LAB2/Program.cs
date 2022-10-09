@@ -134,7 +134,7 @@ void SubMenu()
             Console.WriteLine("4. Show Total Price In EUR.");
             Console.WriteLine("5. Show My Account Information and Cart");
             Console.WriteLine("6. Close App And Show Some Awesomeness.");
-            Console.WriteLine("\n0. Take Me To The Checkout");
+            Console.WriteLine("\n0. Checkout");
             //Console.WriteLine("6. Go back.");
             
             input = int.Parse(Console.ReadLine());
