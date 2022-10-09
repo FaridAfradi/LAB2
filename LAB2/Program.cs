@@ -161,6 +161,7 @@ void SubMenu()
             {
                 Console.Clear();
                 currentCustomer.CartPresent();
+                Console.WriteLine($"\nTotal Price For All Products: {currentCustomer.TotalPrice} SEK");
                 Console.WriteLine("\nPress Enter To Go back");
                 Console.ReadLine();
             }

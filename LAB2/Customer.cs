@@ -10,6 +10,7 @@ namespace LAB2 {
         private double _totalPrice;
         private string _customerId;
         private string _password;
+        
 
         private List<Product> _cart; 
 
@@ -62,9 +63,10 @@ namespace LAB2 {
                 
                 foreach (var disctinctProd in distinctCart)                              
                 {
+
                     var ammount = 0;
                     ammount = _cart.Count(x => x == disctinctProd);
-                    Console.WriteLine($"{ammount}x (HG) {disctinctProd.ProductName}");
+                    Console.WriteLine($"{ammount}x {disctinctProd.ProductName} - {disctinctProd.Price} SEK each ");
                 }
             }
         }
@@ -73,12 +75,14 @@ namespace LAB2 {
             _cart.Add(product);
             Console.WriteLine("\n1x (HG) " + product.ProductName + " added to cart.\n");
         }
-        public void ConvertCurrencyUSD(double sek) {                                            // print info
+        public void ConvertCurrencyUSD(double sek) {                          //public void ConvertCurrencyUSD(double sek)
+           
             _usd = (sek * 0.090D);
-            Console.WriteLine($"Price In USD: {_usd}");
+            Console.WriteLine(string.Format("{0:0:00}", $"Price is USD: {_usd}"));
             Console.WriteLine("(Exchange Rate: 0.090)");
         }
         public void ConvertCurrencyEUR(double sek) {                                            // print info
+           
             _eur = (sek * 0.092D);
             Console.WriteLine($"Price In EUR: {_eur}");
             Console.WriteLine("(Exchange Rate 0.092)");
