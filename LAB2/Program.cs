@@ -147,7 +147,7 @@ void SubMenu()
             Console.WriteLine("4) Show Total Price In EUR.");
             Console.WriteLine("5) Show My Account Information and Cart");
             Console.WriteLine("6) ...AWESOMENESS...");
-            Console.WriteLine("\n0. Checkout");
+            Console.WriteLine("\n0) Checkout");
             //Console.WriteLine("6. Go back.");
             
             input = int.Parse(Console.ReadLine());
@@ -170,7 +170,7 @@ void SubMenu()
                 Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
                 currentCustomer.ConvertCurrencyUSD(totalPrice);
-                Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
+                //Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
 
@@ -181,7 +181,7 @@ void SubMenu()
                 Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
                 currentCustomer.ConvertCurrencyEUR(totalPrice);
-                Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
+                //Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
 
