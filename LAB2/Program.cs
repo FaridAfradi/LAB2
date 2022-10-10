@@ -205,8 +205,7 @@ void SubMenu()
             {
 
                 Console.Clear();
-                Console.WriteLine(currentCustomer);
-                Console.WriteLine(currentCustomer.CustomerId.ToString());
+                Console.WriteLine(currentCustomer.ToString());
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
             }
