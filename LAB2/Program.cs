@@ -214,7 +214,7 @@ void SubMenu()
             else if (input == 6)
             {
                 ColorfulAnimation();
-                break;
+
             }
 
         } 
@@ -358,12 +358,12 @@ void LogIn() {
 
 static void ColorfulAnimation() 
 {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
         for (int j = 0; j < 30; j++) {
             Console.Clear();
 
             
-            Console.Write("       . . . . o o o o o o", Color.LightGray);
+            Console.Write("       . . . . 1 3 3 7 o o", Color.LightGray);
             for (int s = 0; s < j / 2; s++) {
                 Console.Write(" o", Color.LightGray);
             }

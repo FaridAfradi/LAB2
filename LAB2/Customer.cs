@@ -81,7 +81,7 @@ namespace LAB2 {
 
         public void addToCart(Product product) {                                                // print info
             _cart.Add(product);
-            Console.WriteLine("\n1x (HG) " + product.ProductName + " added to cart.\n");
+            Console.WriteLine("\n1x " + product.ProductName + " added to cart.\n");
         }
         public void ConvertCurrencyUSD(double sek) {                          //public void ConvertCurrencyUSD(double sek)
            
