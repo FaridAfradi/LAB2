@@ -25,16 +25,19 @@ namespace LAB2 {
         }
 
         public double TotalPrice {
-            get {
+            get
+            {
                 _totalPrice = 0.0D;
 
-                for (int i = 0; i < _cart.Count; i++) {                                             // calculate total cost
+                for (int i = 0; i < _cart.Count; i++) 
+                {                                             // calculate total cost
                     _totalPrice += _cart[i].Price;
                 }
 
-                return _totalPrice;
+                return Math.Round(_totalPrice, 2);
             }
             private set {
+
                 _totalPrice = TotalPrice; 
             }
         }

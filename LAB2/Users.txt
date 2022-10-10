@@ -13,7 +13,7 @@ https://learn.microsoft.com/en-us/dotnet/api/system.io.file?view=net-7.0
 - ReadAllLines <---- Den kan vara bra att scanna igenom listan med för validering
 - WriteAllLines <---- Tar emot en array och skriver ut alla instancer av arrayen på en rad
 
-- Fixa Public override ToString() till alla klasser
+- Fixa Public override ToString()
 - kolla in Basic/Bronze/silver/gold - (Separata klasser eller en klass med olika properties)
 - Få ut path till folder/med texten
 

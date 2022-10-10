@@ -128,13 +128,13 @@ void SubMenu()
                 Console.WriteLine("Thank you for your visit!");
                 Thread.Sleep(1500);
                 isRunning = false;
-                break;
+                
             }
             else if (doneShopping == 2)
             {
                 Console.WriteLine("Sure Thing!");
+                Thread.Sleep(1000);
             }
-            
 
         }
 
@@ -163,11 +163,18 @@ void SubMenu()
                 Console.Clear();
                 currentCustomer.CartPresent();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write($"\nTotal Price ");
+                if (currentCustomer.TotalPrice > 11.85D)
+                {
+                    Console.Write($"\nTotal Price ");
+                    Console.ResetColor();
+                    Console.WriteLine($"For All Products: {currentCustomer.TotalPrice} SEK");
+                    
+
+                }
                 Console.ResetColor();
-                Console.WriteLine($"For All Products: { currentCustomer.TotalPrice} SEK");
                 Console.WriteLine("\nPress Enter To Go back");
                 Console.ReadLine();
+
             }
 
             else if (input == 3)
@@ -374,6 +381,11 @@ static void ColorfulAnimation()
     }
 }
 
+while (true) 
+{
+    MainMenu();
+    SubMenu();
+}
 
 MainMenu();
 SubMenu();
