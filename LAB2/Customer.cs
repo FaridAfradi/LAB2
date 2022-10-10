@@ -116,15 +116,24 @@ namespace LAB2 {
 
             var temp = "";
 
-            foreach (var item in _cart) 
+            /*foreach (var item in _cart) 
             {            //_cart
                 temp += item.ProductName + "\n";
-            }
-            //_cart.Select(x => x.ProductName + " ").ToString();
-            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp}";
-            
+            }*/
 
-            //_cart.Select(x => x.ProductName + " ").ToString();
+            var distinctCart = _cart.Distinct();
+
+            foreach (var disctinctProd in distinctCart) {
+
+                var ammount = 0;
+                ammount = _cart.Count(x => x == disctinctProd);
+                temp += $"{ammount}x {disctinctProd.ProductName} - {disctinctProd.Price} SEK each \n";
+            }
+
+            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp}\n" +
+                   $"Total Price For Your Cart: {TotalPrice}";
+                    
+
 
 
         }
