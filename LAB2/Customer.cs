@@ -78,13 +78,13 @@ namespace LAB2 {
         public void ConvertCurrencyUSD(double sek) {                          //public void ConvertCurrencyUSD(double sek)
            
             _usd = (sek * 0.090D);
-            Console.WriteLine(string.Format("{0:0:00}", $"Price is USD: {_usd}"));
+            Console.WriteLine($"Price is USD: {Math.Round(_usd, 2)}");
             Console.WriteLine("(Exchange Rate: 0.090)");
         }
         public void ConvertCurrencyEUR(double sek) {                                            // print info
            
             _eur = (sek * 0.092D);
-            Console.WriteLine($"Price In EUR: {_eur}");
+            Console.WriteLine($"Price is EUR: {Math.Round(_eur, 2)}");
             Console.WriteLine("(Exchange Rate 0.092)");
         }
         public Customer() 
