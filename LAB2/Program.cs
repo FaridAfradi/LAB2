@@ -125,10 +125,13 @@ void SubMenu()
             doneShopping = int.Parse(Console.ReadLine());
             if (doneShopping == 1)
             {
+                Console.Clear();
                 Console.WriteLine("Thank you for your visit!");
                 Thread.Sleep(1500);
                 isRunning = false;
-                
+                break;
+
+
             }
             else if (doneShopping == 2)
             {
@@ -381,12 +384,12 @@ static void ColorfulAnimation()
     }
 }
 
-while (true) 
-{
-    MainMenu();
-    SubMenu();
-}
 
 MainMenu();
 SubMenu();
+    
+
+
+
+
 
