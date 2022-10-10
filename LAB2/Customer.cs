@@ -14,9 +14,14 @@ namespace LAB2 {
 
         private List<Product> _cart; 
 
-        public List<Product> Cart {
-            get { return _cart; }
-            set { }
+        public List<Product> Cart 
+        {
+            get
+            {
+                return _cart; 
+
+            }
+            
         }
 
         public double TotalPrice {
@@ -42,7 +47,7 @@ namespace LAB2 {
 
         public string Password {
             get { return _password; }
-            private set { _password = value; }
+            set { _password = value; }
         }
 
 
