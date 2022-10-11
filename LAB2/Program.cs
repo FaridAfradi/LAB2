@@ -88,16 +88,14 @@ void MainMenu() {
             {
                 var temp = NewCustomer();
 
-                //if (temp == null)
-                //{
-                //    break;
-                //}
 
                 if (temp != null)
                 { 
                     customers.Add(NewCustomer());
+
                 }
 
+                
 
             }
 
