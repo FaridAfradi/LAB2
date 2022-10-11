@@ -11,7 +11,7 @@ using Microsoft.VisualBasic.CompilerServices;
 /// - FIXA DECIMALER PÅ SEK OCH USD OCH EUR (MAX .00 2ST DECIMALER)
 
 var menu = new List<Product>();
-menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });                               // Add items to Menu (list)
+menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });
 menu.Add(new Product { ProductId = 2, ProductName = "Thyme", Price = 11.95D });
 menu.Add(new Product { ProductId = 3, ProductName = "Bay Leaf", Price = 23.95D });
 menu.Add(new Product { ProductId = 4, ProductName = "Parsley", Price = 17.95D });
@@ -25,7 +25,7 @@ customers.Add(new Customer("Tjatte", "213"));
 Customer? currentCustomer = null;
 
 
-void MenuAdd() {                                                                                            // Method for adding products to menu
+void MenuAdd() {                                                                                            
 
     int input = 10;
 
@@ -39,7 +39,7 @@ void MenuAdd() {                                                                
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("To Exit Menu, press 0");
 
-        for (int i = 0; i < menu.Count; i++)                                                                        // Show menu for adding products in method                                                           
+        for (int i = 0; i < menu.Count; i++)                                                                                                                            
         {
             menu[i].MenuPresent();
         }
@@ -47,7 +47,7 @@ void MenuAdd() {                                                                
         try {
 
             input = int.Parse(Console.ReadLine());
-            if (input == 1) { currentCustomer.addToCart(menu[0]); }                                         // add items until user exits
+            if (input == 1) { currentCustomer.addToCart(menu[0]); }                                         
             else if (input == 2) { currentCustomer.addToCart(menu[1]); } 
             else if (input == 3) { currentCustomer.addToCart(menu[2]); } 
             else if (input == 4) { currentCustomer.addToCart(menu[3]); } 
@@ -92,7 +92,7 @@ void MainMenu() {
             }
 
             if (currentCustomer != null) 
-            {                                                                              // Måste fixa
+            {                                                                              // måste fixa
                // break;
             }
 
@@ -229,7 +229,7 @@ void SubMenu()
 
 }
 
-static Customer NewCustomer()                                                                                                                       // static Customer
+static Customer NewCustomer()                                                                                                                       
 {
     Customer cust = new Customer();
     Console.Clear();
@@ -257,7 +257,7 @@ static Customer NewCustomer()                                                   
         Console.WriteLine("[Create A New User]\n");
         Console.ResetColor();
         Console.WriteLine($"Username Chosen: {user}");
-        Console.WriteLine("Invalid password.");
+        Console.WriteLine("Invalid password. Try Again");
         Console.WriteLine("\nChoose Your Password, Minimum 5 Characters");
         password = Console.ReadLine();
 
@@ -305,7 +305,7 @@ void LogIn() {
     string password = Console.ReadLine();
 
     foreach (var customer in customers) {
-        if (customer.CustomerId.Equals(user)) {                                                                             // Krashar, varför?
+        if (customer.CustomerId.Equals(user)) {                                                                             
             if (customer.Password.Equals(password)) // (customer.Password.Equals(password))
             {
                 Console.Clear();

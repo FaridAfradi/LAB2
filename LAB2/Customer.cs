@@ -30,7 +30,7 @@ namespace LAB2 {
                 _totalPrice = 0.0D;
 
                 for (int i = 0; i < _cart.Count; i++) 
-                {                                             // calculate total cost
+                {                                             
                     _totalPrice += _cart[i].Price;
                 }
 
@@ -56,13 +56,13 @@ namespace LAB2 {
 
         public void CartPresent() {
 
-            if (TotalPrice < 11.85D) {                                                           // my lowest price item sets condition of empty cart (null prints wrong info)
+            if (TotalPrice < 11.85D) {                                                           
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Your Cart Is Currently Empty.");
                 // Thread.Sleep(1500);
                 Console.ResetColor();
 
-            } else if (_cart != null) {                                                          // (IF) totalprice do not meed condition
+            } else if (_cart != null) {                                                          
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nYour Cart Currently Contains:");
                 Console.ResetColor();
@@ -79,17 +79,17 @@ namespace LAB2 {
             }
         }
 
-        public void addToCart(Product product) {                                                // print info
+        public void addToCart(Product product) {                                                
             _cart.Add(product);
             Console.WriteLine("\n1x " + product.ProductName + " added to cart.\n");
         }
-        public void ConvertCurrencyUSD(double sek) {                          //public void ConvertCurrencyUSD(double sek)
+        public void ConvertCurrencyUSD(double sek) {                          
            
             _usd = (sek * 0.090D);
             Console.WriteLine($"Price is USD: {Math.Round(_usd, 2)}");
             Console.WriteLine("(Exchange Rate: 0.090)");
         }
-        public void ConvertCurrencyEUR(double sek) {                                            // print info
+        public void ConvertCurrencyEUR(double sek) {                                            
            
             _eur = (sek * 0.092D);
             Console.WriteLine($"Price is EUR: {Math.Round(_eur, 2)}");
@@ -111,7 +111,7 @@ namespace LAB2 {
         }
 
 
-        public override string ToString() {                                                        // print info
+        public override string ToString() {                                                       
 
 
             var temp = "";
