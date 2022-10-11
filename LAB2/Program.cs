@@ -88,10 +88,9 @@ void MainMenu() {
             {
                 var temp = NewCustomer();
 
-
                 if (temp != null)
                 { 
-                    customers.Add(NewCustomer());
+                    customers.Add(temp);
 
                 }
 
@@ -298,7 +297,7 @@ static Customer? NewCustomer()
         }
     }
 
-    return cust;
+    return null;
 
 }
 
