@@ -84,10 +84,20 @@ void MainMenu() {
                 
 
 
-            } else if (userPick == 2) {
+            } else if (userPick == 2)
+            {
+                var temp = NewCustomer();
 
+                //if (temp == null)
+                //{
+                //    break;
+                //}
 
-                customers.Add(NewCustomer());
+                if (temp != null)
+                { 
+                    customers.Add(NewCustomer());
+                }
+
 
             }
 
@@ -149,7 +159,7 @@ void SubMenu()
             Console.WriteLine("2) Show My Cart.");
             Console.WriteLine("3) Show Total Price In USD.");
             Console.WriteLine("4) Show Total Price In EUR.");
-            Console.WriteLine("5) Show My Account Information and Cart");
+            Console.WriteLine("5) Show My Account Info");
             Console.WriteLine("6) ...AWESOMENESS...");
             Console.WriteLine("\n0) Checkout");
             //Console.WriteLine("6. Go back.");
@@ -229,7 +239,7 @@ void SubMenu()
 
 }
 
-static Customer NewCustomer()                                                                                                                       
+static Customer? NewCustomer()                                                                                                                       
 {
     Customer cust = new Customer();
     Console.Clear();
@@ -276,9 +286,11 @@ static Customer NewCustomer()
         }
 
         if (count == 3) {
-            Console.WriteLine("Password Confirmation Failed. Returning To Main Menu\n");
+            Console.WriteLine("Password Confirmation Failed. Try Again.\n");
             Thread.Sleep(1500);
             break;
+
+
 
         } else if (confirm == password) {
             Customer cust1 = new Customer(user, password);
@@ -294,6 +306,7 @@ static Customer NewCustomer()
     }
 
     return cust;
+
 }
 
 void LogIn() {
