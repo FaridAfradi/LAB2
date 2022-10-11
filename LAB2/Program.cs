@@ -95,14 +95,9 @@ void MainMenu() {
 
                 }
 
-                
 
             }
 
-            if (currentCustomer != null) 
-            {                                                                              // måste fixa
-               // break;
-            }
 
         } catch (Exception wrong) {
             Console.Clear();
@@ -284,7 +279,7 @@ static Customer? NewCustomer()
         }
 
         if (count == 3) {
-            Console.WriteLine("Password Confirmation Failed. Try Again.\n");
+            Console.WriteLine("Password Confirmation Failed. Returning.\n");
             Thread.Sleep(1500);
             break;
 
@@ -396,6 +391,12 @@ static void ColorfulAnimation()
 
 
 MainMenu();
+for (int i = 0; i < customers.Count; i++)
+{
+    Console.WriteLine(customers[i].CustomerId);
+}
+
+Console.ReadLine();
 SubMenu();
     
 
