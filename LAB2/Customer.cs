@@ -64,7 +64,7 @@ namespace LAB2 {
 
             } else if (_cart != null) {                                                          
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nYour Cart Currently Contains:");
+                Console.WriteLine($"\nYour Cart Contains:");
                 Console.ResetColor();
 
                 var distinctCart = _cart.Distinct();
@@ -130,8 +130,7 @@ namespace LAB2 {
                 temp += $"{ammount}x {disctinctProd.ProductName} - {disctinctProd.Price} SEK each \n";
             }
 
-            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp}\n" +
-                   $"Total Price For Your Cart: {TotalPrice}";
+            return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp}\nTotal Price For Your Cart: {TotalPrice}";
                     
 
 

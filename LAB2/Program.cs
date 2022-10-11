@@ -37,7 +37,7 @@ void MenuAdd() {
 
         Console.WriteLine("\nAdd Products To Your Cart ");
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("To Exit Menu, press 0");
+        Console.WriteLine("0) Exit Menu");
 
         for (int i = 0; i < menu.Count; i++)                                                                                                                            
         {
@@ -94,7 +94,6 @@ void MainMenu() {
 
                 }
 
-
             }
 
 
@@ -132,7 +131,6 @@ void SubMenu()
                 Thread.Sleep(1500);
                 isRunning = false;
                 break;
-
 
             }
             else if (doneShopping == 2)
@@ -197,7 +195,6 @@ void SubMenu()
                 Console.Clear();
                 double totalPrice = currentCustomer.TotalPrice;
                 currentCustomer.ConvertCurrencyEUR(totalPrice);
-                //Console.WriteLine($"Price In SEK: {currentCustomer.TotalPrice}");
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
 
@@ -211,7 +208,6 @@ void SubMenu()
                 Console.WriteLine("\nPress Enter To Go Back");
                 Console.ReadLine();
             }
-
 
             else if (input == 6)
             {
@@ -311,7 +307,7 @@ void LogIn() {
 
     foreach (var customer in customers) {
         if (customer.CustomerId.Equals(user)) {                                                                             
-            if (customer.Password.Equals(password)) // (customer.Password.Equals(password))
+            if (customer.Password.Equals(password)) 
             {
                 Console.Clear();
                 Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
@@ -390,11 +386,10 @@ static void ColorfulAnimation()
 
 
 MainMenu();
-for (int i = 0; i < customers.Count; i++)
-{
-    Console.WriteLine(customers[i].CustomerId);
-}
-
+//for (int i = 0; i < customers.Count; i++)
+//{
+//    Console.WriteLine(customers[i].CustomerId);
+//}
 Console.ReadLine();
 SubMenu();
     
