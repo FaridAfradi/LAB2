@@ -151,6 +151,7 @@ void SubMenu()
             Console.WriteLine("4) Show Total Price In EUR.");
             Console.WriteLine("5) Show My Account Info");
             Console.WriteLine("6) ...AWESOMENESS...");
+            Console.WriteLine("7) Log Out.");
             Console.WriteLine("\n0) Checkout");
             //Console.WriteLine("6. Go back.");
             
@@ -213,6 +214,12 @@ void SubMenu()
             {
                 ColorfulAnimation();
 
+            }
+
+            else if (input == 7)
+            {
+                currentCustomer = null;
+                MainMenu();
             }
 
         } 
