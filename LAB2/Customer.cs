@@ -1,5 +1,7 @@
 ﻿
 
+using System.Security.Cryptography.X509Certificates;
+
 namespace LAB2 {
 
     public class Customer {
@@ -52,6 +54,7 @@ namespace LAB2 {
             get { return _password; }
             set { _password = value; }
         }
+
 
 
         public void CartPresent() {
@@ -133,10 +136,19 @@ namespace LAB2 {
             return $"\nUsername: {_customerId}\nPassword: {_password}\n\nYour Cart Contains:\n\n{temp}\nTotal Price For Your Cart: {TotalPrice}";
                     
 
+            
 
 
         }
 
+
+
+        public bool IsPasswordOk(string password)
+
+        {
+            return _password.Equals(password);
+
+        }
 
     }
 

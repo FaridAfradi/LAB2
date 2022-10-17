@@ -314,7 +314,7 @@ void LogIn() {
 
     foreach (var customer in customers) {
         if (customer.CustomerId.Equals(user)) {                                                                             
-            if (customer.Password.Equals(password)) 
+            if (customer.IsPasswordOk(password))
             {
                 Console.Clear();
                 Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
@@ -325,7 +325,9 @@ void LogIn() {
                 Thread.Sleep(1500);
                 return;
 
-            } else if (!customer.Password.Equals(password)) 
+            } 
+            
+            else
             {
                 for (int i = 0; i < 3; i++) 
                 {
@@ -335,7 +337,7 @@ void LogIn() {
                     Console.WriteLine("Enter Your Password");
                     password = Console.ReadLine();
 
-                    if (customer.Password.Equals(password))
+                    if (customer.IsPasswordOk(password))
                     {
                         Console.Clear();
                         Console.WriteLine($"Login Sucessful @ {DateTime.Now}");
