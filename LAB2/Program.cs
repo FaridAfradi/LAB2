@@ -10,13 +10,15 @@ using Microsoft.VisualBasic.CompilerServices;
 /// </summary>
 /// - FIXA DECIMALER PÅ SEK OCH USD OCH EUR (MAX .00 2ST DECIMALER)
 
-var menu = new List<Product>();
-menu.Add(new Product { ProductId = 1, ProductName = "Oregano", Price = 13.95D });
-menu.Add(new Product { ProductId = 2, ProductName = "Thyme", Price = 11.95D });
-menu.Add(new Product { ProductId = 3, ProductName = "Bay Leaf", Price = 23.95D });
-menu.Add(new Product { ProductId = 4, ProductName = "Parsley", Price = 17.95D });
-menu.Add(new Product { ProductId = 5, ProductName = "Rosemary", Price = 14.95D });
-menu.Add(new Product { ProductId = 6, ProductName = "Chive", Price = 19.95D });
+var menu = new List<Product>
+{
+    new() { ProductId = 1, ProductName = "Oregano", Price = 13.95D },
+    new() { ProductId = 2, ProductName = "Thyme", Price = 11.95D },
+    new() { ProductId = 3, ProductName = "Bay Leaf", Price = 23.95D },
+    new() { ProductId = 4, ProductName = "Parsley", Price = 17.95D },
+    new() { ProductId = 5, ProductName = "Rosemary", Price = 14.95D },
+    new() { ProductId = 6, ProductName = "Chive", Price = 19.95D }
+};
 
 var customers = new List<Customer>();
 customers.Add(new Customer("Knatte", "123"));
